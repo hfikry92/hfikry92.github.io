@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en" >
+
+<head>
+  <meta charset="UTF-8">
+  <title>Simple Search Bar</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+  
+  
+      <link rel="stylesheet" href="css/style.css">
+ <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>jQuery UI Autocomplete - Scrollable results</title>
+  <link rel="stylesheet" href="http://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+
+  <style>
+  .ui-autocomplete {
+    max-height: 100px;
+    overflow-y: auto;
+    /* prevent horizontal scrollbar */
+    overflow-x: hidden;
+  }
+  /* IE 6 doesn't support max-height
+   * we use height instead, but this forces the menu to always be this tall
+   */
+  * html .ui-autocomplete {
+    height: 100px;
+  }
+  </style>
+  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  <script type="text/javascript" language="javascript">
+
+
+$(document).ready(function() {
+  $.ajax({
+    url: "csv/countries.csv",
+    dataType: "text"
+ }).done(processData);
+});
+
+
+var a = [];
+function processData(myTxt) {
+    var myLines = myTxt.split(/\r\n|\n/);
+    for (var i=1; i<myLines.length; i++) {
+          a.push(myLines[i]);
+        }
+        console.log(a);
+        $( "#tags" ).autocomplete({
+            source: a
+        });
+}
+
+
+$( "#tags" ).autocomplete({
+    source: a
+});
+</script>
+  
+</head>
+
+<body>
+
+  <div class="wrap">
+   <div class="search">
+      <input id="tags" type="text" class="searchTerm" placeholder="What are you looking for?">
+      <button type="submit" class="searchButton">
+        <i class="fa fa-search"></i>
+     </button>
+ 
+   </div>
+</div>
+  
+  
+
+</body>
+
+</html>
