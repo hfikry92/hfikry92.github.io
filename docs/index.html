@@ -89,7 +89,7 @@ function onButtonClickL(myfile){
 }
 function makeTable(container, data) {
     var table = $("<table/>").addClass('CSSTableGenerator');
-    $.each(data, function(rowIndex, r) {
+    $.each(JSON.parse(myData), function(rowIndex, r) {
         var row = $("<tr/>");
         $.each(r, function(colIndex, c) { 
             row.append($("<t"+(rowIndex == 0 ?  "h" : "d")+"/>").text(c));
