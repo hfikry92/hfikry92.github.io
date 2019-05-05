@@ -52,7 +52,7 @@ function processData(myTxt) {
         });
 }
 function parseCsvAndShow(data){
-      var myLines = myTxt.split(/\r\n|\n/);
+      var myLines = data.split(/\r\n|\n/);
       var line = '';
   for (var i=1; i<myLines.length; i++) {
           line = myLines[i].split(',');
