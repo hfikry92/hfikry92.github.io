@@ -91,12 +91,13 @@ function makeTable(container, data) {
     var table = $("<table/>").addClass('CSSTableGenerator');
     $.each(data, function(rowIndex, r) {
         var row = $("<tr/>");
+        row.append(countriesString[counter]);
         $.each(r, function(colIndex, c) { 
             row.append($("<t"+(rowIndex == 0 ?  "h" : "d")+"/>").text(c));
 
 
         });
-        table.append(countriesString[counter] + row);
+        table.(row);
     });
     return container.append(table);
 }
