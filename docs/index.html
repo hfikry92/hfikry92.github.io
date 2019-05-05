@@ -69,7 +69,7 @@ function onButtonClickL(){
       $.ajax({
     url: "egy.csv",
     dataType: "text"
-    }).done(processData);
+    }).done(parseCsvAndShow);
        
 }
 function makeTable(container, data) {
@@ -93,7 +93,7 @@ $( "#tags" ).autocomplete({
       $.ajax({
     url: "egy.csv",
     dataType: "text"
-    }).done(processData);
+    }).done(parseCsvAndShow);
        
     },
 });
