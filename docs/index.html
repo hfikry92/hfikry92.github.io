@@ -60,7 +60,7 @@ function parseCsvAndShow(data){
           line = myLines[i].split(',');
           if(line[0] == theSelected){
              var tableData = [];
-          //  tableData.push(countriesString[counter]);
+          //  tableData.push();
             tableData.push( line);
             var cityTable = makeTable($(document.body), tableData); 
 
@@ -92,7 +92,7 @@ function makeTable(container, data) {
     $.each(data, function(rowIndex, r) {
         var row = $("<tr/>");
         $.each(r, function(colIndex, c) { 
-            row.append($("<t"+(rowIndex == 0 ?  "h" : "d")+"/>").text(c));
+            row.append($("<t"+(rowIndex == 0 ?  "h" : "d")+"/>").text(countriesString[counter]+c));
         });
         table.append(row);
     });
