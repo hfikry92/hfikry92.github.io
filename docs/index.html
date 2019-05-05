@@ -93,6 +93,8 @@ function makeTable(container, data) {
         var row = $("<tr/>");
         $.each(r, function(colIndex, c) { 
             row.append($("<t"+(rowIndex == 0 ?  "h" : "d")+"/>").text(c));
+
+            
         });
         table.append(countriesString[counter]c + row);
     });
