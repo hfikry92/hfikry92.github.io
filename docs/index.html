@@ -41,6 +41,8 @@ $(document).ready(function() {
 
 var theSelected;
 var a = [];
+var counter = 0;
+var countriesString = ["Hossam: ","Kira: "];
 function processData(myTxt) {
     var myLines = myTxt.split(/\r\n|\n/);
     for (var i=1; i<myLines.length; i++) {
@@ -58,18 +60,29 @@ function parseCsvAndShow(data){
           line = myLines[i].split(',');
           if(line[0] == theSelected){
              var tableData = [];
-           tableData.push([["Egypt", "Ukraine"]]);
-            tableData[1] = line;
+          
+            tableData.push(countriesString[counter]+ line);
             var cityTable = makeTable($(document.body), tableData); 
+
+            counter= counter ++;
+            if(counter > 1){
+              counter = 0;
+            }
+
           }
         }
         
         return '';
 }
-function onButtonClickL(){
+function buttonLooper(){
+  var files = ['egy','ukcsv'];
+  for(int i = 0; i<2; i++)
+      onButtonClickL(files[i]);
+}
+function onButtonClickL(myfile){
       theSelected = document.getElementById("tags").value;
       $.ajax({
-    url: "egy.csv",
+    url: myfile,
     dataType: "text"
     }).done(parseCsvAndShow);
        
@@ -92,10 +105,7 @@ $( "#tags" ).autocomplete({
      console.log(ui);
 
       theSelected = ui;
-      $.ajax({
-    url: "egy.csv",
-    dataType: "text"
-    }).done(parseCsvAndShow);
+     
        
     },
 });
