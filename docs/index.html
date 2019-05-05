@@ -89,9 +89,12 @@ function onButtonClickL(myfile){
 }
 function makeTable(container, data) {
   var child = document.getElementById("tbl");
-//var parent = document.getElementById(parentDiv);
+
+//var parent = document.getEossalementById(parentDiv);
 if(child != null){
+  if(child.rows.length >=2){
 child.parentNode.removeChild(child);
+}
 }
     var table = $('<table id ="tbl"/>').addClass('CSSTableGenerator');
     $.each(data, function(rowIndex, r) {
