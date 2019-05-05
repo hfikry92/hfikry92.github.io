@@ -39,7 +39,7 @@ $(document).ready(function() {
  }).done(processData);
 });
 
-
+var theSelected;
 var a = [];
 function processData(myTxt) {
     var myLines = myTxt.split(/\r\n|\n/);
@@ -51,10 +51,41 @@ function processData(myTxt) {
             source: a
         });
 }
-
+function parseCsvAndShow(data){
+      var myLines = myTxt.split(/\r\n|\n/);
+      var line = '';
+  for (var i=1; i<myLines.length; i++) {
+          line = myLines[i].split(',');
+          if(line == theSelected)
+            return myLines[i];
+        }
+        
+        return '';
+}
+function makeTable(container, data) {
+    var table = $("<table/>").addClass('CSSTableGenerator');
+    $.each(data, function(rowIndex, r) {
+        var row = $("<tr/>");
+        $.each(r, function(colIndex, c) { 
+            row.append($("<t"+(rowIndex == 0 ?  "h" : "d")+"/>").text(c));
+        });
+        table.append(row);
+    });
+    return container.append(table);
+}
 
 $( "#tags" ).autocomplete({
-    source: a
+    source: a,
+    select: function (e, ui) {
+              console.log(ui);
+
+      theSelected = ui;
+      $.ajax({
+    url: "egy.csv",
+    dataType: "text"
+    }).done(processData);
+       
+    },
 });
 </script>
   
