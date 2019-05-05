@@ -102,11 +102,12 @@ child.parentNode.removeChild(child);
     $.each(data, function(rowIndex, r) {
         var row = $("<tr/>");
         row.append(countriesString[counter]);
-        $.each(r, function(colIndex, c) { 
-            row.append($("<t"+(rowIndex == 0 ?  "h" : "d")+"/>").text(c));
-            resultString[counter] = c;
+        // $.each(r, function(colIndex, c) { 
+        //     row.append($("<t"+(rowIndex == 0 ?  "h" : "d")+"/>").text(c));
 
-        });
+
+        // });
+        resultString[counter] = r;
         //table.append(row);
         if(counter == 1)
           alert(countriesString[0]+ resultString[0]+"\n"+countriesString[1]+ resultString[1]+"\n");
