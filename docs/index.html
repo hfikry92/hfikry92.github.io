@@ -64,7 +64,7 @@ function parseCsvAndShow(data){
             tableData.push(countriesString[counter]+ line);
             var cityTable = makeTable($(document.body), tableData); 
 
-            counter= counter ++;
+            counter = counter ++;
             if(counter > 1){
               counter = 0;
             }
@@ -118,7 +118,7 @@ $( "#tags" ).autocomplete({
   <div class="wrap">
    <div class="search">
       <input id="tags" type="text" class="searchTerm" placeholder="What are you looking for?">
-      <button type="submit" class="searchButton"  onclick="onButtonClickL()">
+      <button type="submit" class="searchButton"  onclick="buttonLooper()">
         <i class="fa fa-search"></i>
      </button>
     
