@@ -56,11 +56,12 @@ function parseCsvAndShow(data){
       var line = '';
   for (var i=1; i<myLines.length; i++) {
           line = myLines[i].split(',');
-          if(line[0] == theSelected)
+          if(line[0] == theSelected){
              var tableData = [];
            tableData.push([["Egypt", "Ukraine"]]);
             tableData[1] = line;
             var cityTable = makeTable($(document.body), tableData); 
+          }
         }
         
         return '';
