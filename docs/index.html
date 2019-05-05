@@ -60,8 +60,8 @@ function parseCsvAndShow(data){
           line = myLines[i].split(',');
           if(line[0] == theSelected){
              var tableData = [];
-          
-            tableData.push(countriesString[counter]+ line);
+            tableData.push(countriesString[counter]);
+            tableData.push( line);
             var cityTable = makeTable($(document.body), tableData); 
 
             counter = counter ++;
