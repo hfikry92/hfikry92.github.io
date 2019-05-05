@@ -104,11 +104,12 @@ child.parentNode.removeChild(child);
         row.append(countriesString[counter]);
         $.each(r, function(colIndex, c) { 
             row.append($("<t"+(rowIndex == 0 ?  "h" : "d")+"/>").text(c));
-
+            resultString[counter] = c;
 
         });
         //table.append(row);
-        alert(countriesString[0]+ resultString[0]+"\n"+countriesString[0]+ resultString[0]+"\n");
+        if(counter == 1)
+          alert(countriesString[0]+ resultString[0]+"\n"+countriesString[1]+ resultString[1]+"\n");
 
     });
     return container.append(table);
