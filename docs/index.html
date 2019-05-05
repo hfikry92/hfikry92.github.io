@@ -43,6 +43,8 @@ var theSelected;
 var a = [];
 var counter = 0;
 var countriesString = ["Hossam: ","Kira :) : "];
+var resultString = ["",""];
+
 function processData(myTxt) {
     var myLines = myTxt.split(/\r\n|\n/);
     for (var i=1; i<myLines.length; i++) {
@@ -92,7 +94,7 @@ function makeTable(container, data) {
 
 //var parent = document.getEossalementById(parentDiv);
 if(child != null){
-  if(child.rows.length >=2){
+  if( $('#gvPerformanceResult tr').length >=2){
 child.parentNode.removeChild(child);
 }
 }
@@ -105,7 +107,9 @@ child.parentNode.removeChild(child);
 
 
         });
-        table.append(row);
+        //table.append(row);
+        alert(countriesString[0]+ resultString[0]+"\n"+countriesString[0]+ resultString[0]+"\n");
+
     });
     return container.append(table);
 }
