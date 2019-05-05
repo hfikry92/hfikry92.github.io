@@ -42,7 +42,7 @@ $(document).ready(function() {
 var theSelected;
 var a = [];
 var counter = 0;
-var countriesString = ["Hossam: ","Kira: "];
+var countriesString = ["Hossam: ","Kira :) : "];
 function processData(myTxt) {
     var myLines = myTxt.split(/\r\n|\n/);
     for (var i=1; i<myLines.length; i++) {
@@ -64,7 +64,7 @@ function parseCsvAndShow(data){
             tableData.push( line);
             var cityTable = makeTable($(document.body), tableData); 
 
-            counter = counter ++;
+            counter = counter +1;
             if(counter > 1){
               counter = 0;
             }
